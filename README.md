@@ -23,10 +23,6 @@
 - ✅ مدیریت خطا برای ورودی‌های نامعتبر
 - ✅ رابط کاربری ساده و واکنش‌گرا
 
-## 💻 تکنولوژی‌های استفاده شده
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 ## 🚀 نحوه اجرای پروژه
 1. دانلود فایل‌های پروژه:
@@ -149,7 +145,6 @@
 
 
 
-سلام و عید شما هم مبارک! با کمال میل یک فایل README زیبا و حرفه‌ای برای پروژه شما طراحی می‌کنم.
 
 <div dir="rtl">
 
@@ -189,6 +184,12 @@
 ## شرح مسئله
 
 در این پروژه، هدف ایجاد یک تگ سفارشی `<formula>` است که می‌تواند عبارات ریاضی را بر اساس مقادیر ورودی‌های HTML محاسبه کند. این تگ دارای یک ویژگی `evaluator` است که فرمول محاسباتی را در خود نگه می‌دارد. با تغییر هر یک از ورودی‌ها، نتیجه محاسبه به صورت آنی به‌روزرسانی می‌شود.
+
+
+## 💻 تکنولوژی‌های استفاده شده
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 ## ساختار پروژه
 
