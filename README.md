@@ -4,7 +4,7 @@
 
 ![دانشگاه صنعتی شریف](https://upload.wikimedia.org/wikipedia/fa/thumb/4/44/Sharif_University_of_Technology_Logo.svg/1200px-Sharif_University_of_Technology_Logo.svg.png)
 
-**استاد درس:** دکتر یحیی پورسلطانی 
+**استاد درس:** دکتر یحیی پورسلطانی  
 **دانشجو:** علی هاشمیان  
 **شماره دانشجویی:** ۴۰۱۱۰۶۶۸۵  
 **تاریخ تحویل:** [تاریخ تحویل]  
