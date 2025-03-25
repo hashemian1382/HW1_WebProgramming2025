@@ -3,6 +3,7 @@
 # 🎓 تمرین درس برنامه‌نویسی وب - بهار ۱۴۰۴
 
 ![دانشگاه صنعتی شریف](https://upload.wikimedia.org/wikipedia/commons/4/42/Sharif-University-of-Technology.jpg)
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Sharif-University-of-Technology.jpg" width="120" alt="لوگوی دانشگاه صنعتی شریف" style="display: block; margin: 0 auto;">
 
 **استاد درس:** دکتر یحیی پورسلطانی  
 **دانشجو:** علی هاشمیان  
