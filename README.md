@@ -192,14 +192,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 ## ۱. ویژگی ثابت FORMULA_REGEX
-
+```javascript
 static FORMULA_REGEX = /^[a-zA-Z0-9+\-*\/()\s.]+$/;
+```
 
 این عبارت منظم (Regex) مشخص می‌کند چه فرمول‌هایی معتبر هستند. فقط حروف، اعداد، عملگرهای ریاضی، پرانتز، فاصله و نقطه مجاز هستند.
 
 
 ## ۲. سازنده کلاس constructor
 
+```javascript
 constructor(element) {
     this.element = element;
     this.formula = element.getAttribute('evaluator');
@@ -207,7 +209,7 @@ constructor(element) {
     this.setupEventListeners();
     this.calculate();
 }
-
+```
 در این بخش:
 
 - عنصر HTML ذخیره می‌شود.
@@ -218,14 +220,14 @@ constructor(element) {
 
 
 ## ۳. تابع findInputElements
-
+```javascript
 findInputElements() {
     const operators = new Set(['+', '-', '*', '/', '(', ')']);
     const inputIds = [...new Set(this.formula.match(/([a-zA-Z0-9]+)/g) || [])]
         .filter(id => !operators.has(id));
     return inputIds.map(id => document.getElementById(id)).filter(Boolean);
 }
-
+```
 این تابع:
 
 - آی‌دی‌هایی که در فرمول آمده‌اند و مربوط به ورودی‌ها هستند (نه عملگرها) را استخراج می‌کند.
@@ -233,16 +235,16 @@ findInputElements() {
 
 
 ## ۴. تابع setupEventListeners
-
+```javascript
 setupEventListeners() {
     this.inputs.forEach(input => input.addEventListener('input', () => this.calculate()));
 }
-
+```
 برای تمام ورودی‌ها یک رویداد input تعریف می‌شود تا هر بار که مقدار ورودی تغییر کرد، دوباره مقدار فرمول محاسبه شود.
 
 
 ## ۵. تابع calculate
-
+```javascript
 calculate() {
     if (!this.isValidFormula(this.formula)) {
         this.element.textContent = 'Invalid Formula';
@@ -272,7 +274,7 @@ calculate() {
         this.element.textContent = 'Invalid Formula';
     }
 }
-
+```
 در این بخش:
 
 - ابتدا بررسی می‌شود که فرمول معتبر است یا نه.
@@ -283,19 +285,20 @@ calculate() {
 
 
 ## ۶. تابع isValidFormula
-
+```javascript
 isValidFormula(formula) {
     return FormulaElement.FORMULA_REGEX.test(formula);
 }
-
+```
 فقط فرمول‌هایی را تأیید می‌کند که با الگوی مجاز مطابقت داشته باشند.
 
 
 ## ۷. مقداردهی اولیه هنگام بارگذاری صفحه
-
+```javascript
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[evaluator]').forEach(element => new FormulaElement(element));
 });
+```
 
 با بارگذاری کامل صفحه، تمام عناصری که ویژگی evaluator دارند شناسایی شده و برای هر کدام یک شیء FormulaElement ساخته می‌شود.
 
