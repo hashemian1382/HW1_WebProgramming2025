@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تمرین دستگرمی اول برنامه نویسی وب: تگ با حساب و کتاب</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>تگ با حساب و کتاب</h1>
+
+        <div class="formula-container">
+            <div class="input-grid">
+                <input type="text" id="fee" placeholder="قیمت واحد">
+                <input type="text" id="count" placeholder="تعداد">
+                <input type="text" id="discount" placeholder="تخفیف">
+            </div>
+            <div class="formula-output">
+                قیمت نهایی: <formula evaluator="count*fee-discount"></formula>
+            </div>
+        </div>
+
+        <div class="formula-container">
+            <div class="input-grid">
+                <input type="text" id="width" placeholder="عرض">
+                <input type="text" id="height" placeholder="ارتفاع">
+            </div>
+            <div class="formula-output">
+                مساحت: <formula evaluator="width*height"></formula>
+            </div>
+        </div>
+
+        <div class="formula-container">
+            <div class="input-grid">
+                <input type="text" id="number1" placeholder="عدد اول">
+                <input type="text" id="number2" placeholder="عدد دوم">
+            </div>
+            <div class="formula-output">
+                فرمول نامعتبر: <formula evaluator="number1#number2"></formula>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
