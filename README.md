@@ -353,16 +353,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 در این قسمت قصد دارم تصاویری به عنوان مثال از اجرای پروژه قرار دهم. برای اجرای پروژه کافی است فایل `index.html` را اجرا کنیم.
 
-![خروجی 1](test1.png)
+![خروجی 1](test1.PNG)
 
 
-![خروجی 2](test2.png)
+![خروجی 2](test2.PNG)
 
 
-![خروجی 3](test3.png)
+![خروجی 3](test3.PNG)
 
 
-![خروجی 4](test4.png)
+![خروجی 4](test4.PNG)
 
 
 
