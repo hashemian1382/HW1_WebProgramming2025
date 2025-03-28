@@ -1,6 +1,6 @@
 <div dir="rtl">
 
-# تگ با حساب و کتاب - پیاده‌سازی محاسبه‌گر پویا
+# تگ با حساب و کتاب - تمرین دستگرمی اول برنامه نویسی وب
 
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Sharif-University-of-Technology.jpg" alt="لوگوی دانشگاه صنعتی شریف" width="200">
