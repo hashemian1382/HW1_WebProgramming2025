@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 در این پروژه، سه نمونه فرمول پیاده‌سازی شده است:
 
-1. **محاسبه قیمت با تخفیف**: `count*fee-discount`
+۱. **محاسبه قیمت با تخفیف**: `count*fee-discount`
    ```html
    <div class="formula-container">
        <div class="input-grid">
@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
    </div>
    ```
 
-2. **محاسبه مساحت**: `width*height`
+۲. **محاسبه مساحت**: `width*height`
    ```html
    <div class="formula-container">
        <div class="input-grid">
@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
    </div>
    ```
 
-3. **فرمول با عملگر نامعتبر**: `number1#number2`
+۳. **فرمول با عملگر نامعتبر**: `number1#number2`
    ```html
    <div class="formula-container">
        <div class="input-grid">
