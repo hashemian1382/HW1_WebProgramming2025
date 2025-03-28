@@ -250,6 +250,130 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 
+
+### 🧱 ساختار کلی کلاس FormulaElement
+
+این کلاس هنگام بارگذاری صفحه (DOMContentLoaded) برای هر عنصری که ویژگی evaluator دارد، یک نمونه جدید می‌سازد و مراحل زیر را انجام می‌دهد:
+
+---
+
+### 🔹 ۱. ویژگی ثابت FORMULA_REGEX
+
+static FORMULA_REGEX = /^[a-zA-Z0-9+\-*\/()\s.]+$/;
+
+این عبارت منظم (Regex) مشخص می‌کند چه فرمول‌هایی معتبر هستند. فقط حروف، اعداد، عملگرهای ریاضی، پرانتز، فاصله و نقطه مجاز هستند.
+
+---
+
+### 🔹 ۲. سازنده کلاس constructor
+
+constructor(element) {
+    this.element = element;
+    this.formula = element.getAttribute('evaluator');
+    this.inputs = this.findInputElements();
+    this.setupEventListeners();
+    this.calculate();
+}
+
+در این بخش:
+
+- عنصر HTML ذخیره می‌شود.
+- مقدار فرمول از ویژگی evaluator خوانده می‌شود.
+- ورودی‌هایی که در فرمول استفاده شده‌اند، شناسایی می‌شوند.
+- برای هر ورودی، یک event listener برای شنیدن تغییرات مقدار ایجاد می‌شود.
+- محاسبه اولیه فرمول انجام می‌شود.
+
+---
+
+### 🔹 ۳. تابع findInputElements
+
+findInputElements() {
+    const operators = new Set(['+', '-', '*', '/', '(', ')']);
+    const inputIds = [...new Set(this.formula.match(/([a-zA-Z0-9]+)/g) || [])]
+        .filter(id => !operators.has(id));
+    return inputIds.map(id => document.getElementById(id)).filter(Boolean);
+}
+
+این تابع:
+
+- آی‌دی‌هایی که در فرمول آمده‌اند و مربوط به ورودی‌ها هستند (نه عملگرها) را استخراج می‌کند.
+- از طریق document.getElementById عناصر ورودی را پیدا می‌کند و در آرایه‌ای برمی‌گرداند.
+
+---
+
+### 🔹 ۴. تابع setupEventListeners
+
+setupEventListeners() {
+    this.inputs.forEach(input => input.addEventListener('input', () => this.calculate()));
+}
+
+برای تمام ورودی‌ها یک رویداد input تعریف می‌شود تا هر بار که مقدار ورودی تغییر کرد، دوباره مقدار فرمول محاسبه شود.
+
+---
+
+### 🔹 ۵. تابع calculate
+
+calculate() {
+    if (!this.isValidFormula(this.formula)) {
+        this.element.textContent = 'Invalid Formula';
+        return;
+    }
+
+    let hasInvalidInput = false;
+    const values = this.inputs.reduce((acc, input) => {
+        const isValid = input.value.trim() !== '' && /^-?\d*\.?\d+$/.test(input.value);
+        if (!isValid) hasInvalidInput = true;
+        acc[input.id] = isValid ? parseFloat(input.value) : 0;
+        return acc;
+    }, {});
+
+    if (hasInvalidInput) {
+        this.element.textContent = 'Unknown';
+        return;
+    }
+
+    try {
+        const evalFunction = new Function(...Object.keys(values), `return ${this.formula};`);
+        const result = evalFunction(...Object.values(values));
+        
+        this.element.textContent = 
+            typeof result === 'number' && !isNaN(result) ? result.toFixed(2) : 'Invalid Formula';
+    } catch (error) {
+        this.element.textContent = 'Invalid Formula';
+    }
+}
+
+در این بخش:
+
+- ابتدا بررسی می‌شود که فرمول معتبر است یا نه.
+- مقادیر ورودی‌ها بررسی و تبدیل به عدد می‌شوند.
+- اگر هر ورودی نامعتبر باشد، مقدار نهایی "Unknown" نمایش داده می‌شود.
+- در صورت معتبر بودن همه چیز، یک تابع با استفاده از new Function ساخته شده و فرمول اجرا می‌شود.
+- نتیجه نهایی با دو رقم اعشار نمایش داده می‌شود.
+
+---
+
+### 🔹 ۶. تابع isValidFormula
+
+isValidFormula(formula) {
+    return FormulaElement.FORMULA_REGEX.test(formula);
+}
+
+فقط فرمول‌هایی را تأیید می‌کند که با الگوی مجاز مطابقت داشته باشند.
+
+---
+
+### 🔹 ۷. مقداردهی اولیه هنگام بارگذاری صفحه
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[evaluator]').forEach(element => new FormulaElement(element));
+});
+
+با بارگذاری کامل صفحه، تمام عناصری که ویژگی evaluator دارند شناسایی شده و برای هر کدام یک شیء FormulaElement ساخته می‌شود.
+
+
+
+
 ## نمونه استفاده
 
 در این پروژه، سه نمونه فرمول پیاده‌سازی شده است:
